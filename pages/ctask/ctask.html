@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title style="text-align:left;">Create Task</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-label style="color:rgb(56, 60, 248);">Task Title : </ion-label>
+      <ion-input type="text" [(ngModel)]="taskTitle" placeholder="Task1" ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label style="color:rgb(56, 60, 248);">Description :</ion-label>
+      <ion-input type="text" [(ngModel)]="taskDesc" placeholder="Chapter1" ></ion-input>
+    </ion-item>
+  
+  <ion-item >
+    <ion-label style="color:rgb(56, 60, 248);"><i class="fa fa-address-card" aria-hidden="true" style="padding-right:10px;"></i>Person In Charge : </ion-label>
+     <ion-input style="width:100px;" type="text"  [(ngModel)]="taskassignPeople" placeholder="Fong"></ion-input>
+  </ion-item>
+ 
+  <ion-item >
+    <ion-label style="color:rgb(36, 39, 233);"><i class="fa fa-calendar" aria-hidden="true" style="padding-right:10px;"></i>Due Date : </ion-label>
+    <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="taskdueDate" placeholder="13 Dec 2017"  min="2018" max="2100-12-31"></ion-datetime> 
+  </ion-item>
+             
+  <!-- select project -->
+    
+  <ion-item>
+    <ion-label> <ion-icon name="ios-clipboard-outline" style="margin-right:10px;"> </ion-icon>Projects</ion-label>
+      <ion-select [(ngModel)]="projectKey" >
+        <ion-option *ngFor="let projects of projectList$ |async" value="{{projects.key}}">
+          {{projects.projectTitle}} 
+        </ion-option>
+      </ion-select>
+  </ion-item>
+
+  <button ion-button block  (click)="create_task()"><i class="fa fa-check fa-3x"  aria-hidden="true" style="color:white;"></i></button> 
+
+</ion-content>

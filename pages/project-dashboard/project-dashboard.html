@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>  
+    <ion-title style="text-align:left;">Dashboard</ion-title>
+    <ion-buttons end>
+      <!-- <ion-searchbar 
+        *ngIf="visible"
+        (ionInput)="onInput($event)">
+      </ion-searchbar> -->
+      <!-- <button ion-button icon-only class="search" (click)="toggle()" >
+          <ion-icon name="ios-search-outline" *ngIf="visibleIcon"></ion-icon>
+      </button> -->
+      <button ion-button left icon-only (click)="open_userprofile()">
+          <img src="assets/icon/people.png" style="width:40px;height:40px; border-radius:50px;" >
+      </button>
+
+    </ion-buttons>
+    <ion-buttons end>
+        <button ion-button icon-only class="option" (click)="presentSort($event)" >
+          <ion-icon name="md-more"></ion-icon>
+        </button>     
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+        <ion-refresher (ionRefresh)="doRefresh($event);">
+            <ion-refresher-content 
+                pullingText="Pull to refresh"
+                pullingIcon="arrow-dropdown"
+                refreshingSpinner="circles"
+                refreshingText="Refreshing..">
+            </ion-refresher-content>
+        </ion-refresher>
+
+        <ion-item class="card-background-page" *ngIf="check">
+                <ion-card>
+                  <img src="assets/imgs/defaultBG.png" />
+                  <div class="card-title">ProjectList not found</div>
+                  <div class="card-subtitle">Start create your project now!</div>
+                </ion-card>
+        </ion-item>
+
+    <ion-card details-push *ngFor="let projects of projectList$ |async" navPush="TasklistPage" (press)="editProject1(projects)" [navParams]= '{projects:projects}'>
+        
+        <button ion-item>
+            <img item-start style="height: 60px;width: 60px;" src="assets/imgs/logo_apps5.png">         
+            <h2 style="font-size:17px;font-weight:700;color:rgb(76, 9, 143)">
+                {{projects.projectTitle}}
+                <i class="fa fa-check-square-o " aria-hidden="true" [hidden]="projects.projectStatus=='not complete'?true:false" [style.color]="projects.projectStatus=='not complete'?'red':'green'"></i>
+                <i class="fa fa-window-close "  aria-hidden="true"  [hidden]="projects.projectStatus!=='not complete'?true:false" [style.color]="projects.projectStatus=='not complete'?'red':'green'"></i>
+            </h2>
+            <h3> Owner : {{projects.projectAssign}}</h3>
+            <h5> Details: {{projects.projectDescription}}</h5>
+            <h5 [hidden]="projects.projectStatus=='completed'?true:false">
+                Due Date : <ion-badge style="font-size:12px;margin-top:10px;" [hidden]="projects.projectStatus=='completed'?true:false"  [style.background-color]="projects.projectDueDate<=myDate?'red':'lime'">{{projects.projectDueDate}}</ion-badge>
+            </h5> 
+        </button>
+
+    </ion-card>
+    
+    <ion-fab right bottom>
+        <button ion-fab color="light"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></button>
+        <ion-fab-list side="top">
+
+        <button navPush="CtaskPage" ion-fab><i class="fa fa-tasks fa-1x" aria-hidden="true" style="color:white"></i>
+            <ion-label>Create Task </ion-label>
+        </button>       
+
+        <button navPush="CprojectPage" ion-fab ><i class="fa fa-clipboard fa-1x" aria-hidden="true" style="color:white"></i>  
+            <ion-label >Create Project</ion-label>
+        </button>
+            
+        </ion-fab-list>
+    </ion-fab>
+</ion-content>

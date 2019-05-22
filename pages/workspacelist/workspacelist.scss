@@ -1,0 +1,45 @@
+page-workspacelist {
+
+    .toolbar-background{
+        background: linear-gradient(180deg, dodgerblue, rgb(38, 38, 204));
+    }
+    .toolbar-title{
+        color:white;
+    }
+    ion-icon{
+        color:white;
+    }
+    .card-background-page {
+
+        ion-card {
+          position: relative;
+          text-align: center;
+        }
+      
+        .card-title {
+          position: absolute;
+          top: 36%;
+          font-size: 1.6em;
+          width: 100%;
+          font-weight: bold;
+          color: black;
+        }
+      
+        .card-subtitle {
+          font-size: 1.0em;
+          position: absolute;
+          top: 52%;
+          width: 100%;
+          color: black;
+        }
+      
+      }
+    .item-block{
+        background-color: rgb(200, 206, 236);
+        width: 95%;
+        margin: 8px;
+        border: 2px solid rgb(97, 97, 97);
+        border-radius: 30px 10px 10px 30px;
+    }
+
+}

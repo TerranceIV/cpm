@@ -1,0 +1,19 @@
+page-documentlist {
+    .toolbar-background{
+        background: linear-gradient(180deg, dodgerblue, rgb(38, 38, 204));
+    }
+    .toolbar-title{
+        color:black;
+    }
+    ion-slide.swiper-slide {
+        // left: 25%;
+    }
+    
+    .slide-zoom {
+        background: #e6e6e6;
+    }
+ 
+    .thumb-img {
+        padding: 8px;
+    }
+}

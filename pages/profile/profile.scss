@@ -1,0 +1,15 @@
+page-profile {
+    .toolbar-background{
+        background: linear-gradient(180deg, dodgerblue, rgb(38, 38, 204));
+    }
+    .toolbar-title{
+        color:white;
+    }
+    ion-icon{
+        color:white;
+    }
+    ion-img.img-loaded img{
+        
+        border-radius: 100px;
+    }
+}

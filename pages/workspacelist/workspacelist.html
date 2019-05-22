@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-toolbar>  
+      <ion-title style="text-align:left;">ProjectList</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event);">
+      <ion-refresher-content 
+      pullingText="Pull to refresh"
+      pullingIcon="arrow-dropdown"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing..">
+      </ion-refresher-content>
+    </ion-refresher>
+    <!-- <ion-item class="card-background-page" *ngIf="check">
+        <ion-card>
+          <img src="assets/imgs/defaultBG.png" />
+          <div class="card-title">ProjectList not found</div>
+          <div class="card-subtitle">Start create your project now!</div>
+        </ion-card>
+    </ion-item> -->
+
+    <ion-list>
+      <button ion-item *ngFor="let projects of projectList$ |async" details-push navPush="CollaborationPage" [navParams]= '{projects:projects}'>
+          <ion-avatar item-start>
+            <i class="fa fa-tasks fa-2x" aria-hidden="true"></i>
+          </ion-avatar>
+          <h2 style="font-size:17px;color:blueviolet"> {{projects.projectTitle}} </h2>
+     
+      </button>
+      
+  </ion-list>
+
+</ion-content>

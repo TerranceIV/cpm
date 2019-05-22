@@ -1,0 +1,19 @@
+page-home {
+    .toolbar-background{
+        background: linear-gradient(180deg, dodgerblue, rgb(38, 38, 204));
+    }
+    .home{
+        background: linear-gradient(200deg, rgb(230, 238, 245), rgb(144, 136, 253));
+    }
+
+    .title,h4{
+        text-align: center;
+        color:white;
+    }
+
+    .start {
+        border-radius: 100px 50px;
+        color:rgb(8, 7, 58);
+     }
+
+}

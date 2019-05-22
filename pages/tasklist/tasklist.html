@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title style="text-align:left;">Task Progress</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event);">
+            <ion-refresher-content 
+                pullingText="Pull to refresh"
+                pullingIcon="arrow-dropdown"
+                refreshingSpinner="circles"
+                refreshingText="Refreshing..">
+            </ion-refresher-content>
+    </ion-refresher>
+    <h3 style="text-align:center;">{{projectId.projectTitle}}</h3>
+    <div class="card-background-page" *ngIf="check">
+            <img src="assets/imgs/defaultBG.png" style="width: 400px;height:400px"/>
+            <div class="card-title">TaskList not found</div>
+            <div class="card-subtitle">Start to create task now!</div>
+    </div>
+  <ion-list>
+ 
+    <ion-item *ngFor="let projectTask of taskList$ |async; let i=index">
+
+        <ion-label style="font-size: 18px;">  {{i+1}} ) 
+            <i class="fa fa-check-square-o" aria-hidden="true" [hidden]="projectTask.taskStatus=='not complete'?true:false" [style.color]="projectTask.taskStatus=='not complete'?'red':'lime'"></i>
+            <i class="fa fa-window-close"  aria-hidden="true"  [hidden]="projectTask.taskStatus!=='not complete'?true:false" [style.color]="projectTask.taskStatus=='not complete'?'red':'lime'"></i>
+             {{projectTask.taskTitle}}
+        </ion-label>    
+        
+        <i class="fa fa-info-circle fa-2x" item-end aria-hidden="true" (click)="infoTask(projectTask,i)"></i>
+        <ion-icon name='create' item-end color="secondary" icon-start details-push navPush="EditTasklistPage" [navParams]= '{projectTask:projectTask}'></ion-icon>
+        <ion-icon name='trash' item-end color="danger" (click)="delTask(projectTask)"></ion-icon>
+    </ion-item>
+            
+    <ion-item *ngIf="!check">
+        <ion-badge item-end style="font-size:20px;" [ngStyle]="{'background-color': completePercentage>=50? 'Chartreuse' : 'red'}">{{completePercentage}}%</ion-badge>
+    
+        <ion-range min="0" max="100" snaps="true" [(ngModel)]="completePercentage" disabled="true">
+            <ion-icon range-left  name="md-done-all" color="danger"></ion-icon>
+            <ion-label range-left small class="small-text">0</ion-label>
+            <ion-label range-right small class="small-text">100</ion-label>
+            <ion-icon range-right name="md-done-all" color="secondary"></ion-icon>
+        </ion-range>
+    </ion-item>
+
+  </ion-list>
+  
+  
+
+    
+</ion-content>

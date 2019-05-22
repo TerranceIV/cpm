@@ -1,0 +1,37 @@
+page-login {
+
+  .login{
+    background: rgba(99, 195, 255, 0.714);
+    button{
+      color:black;
+    }
+    ion-img{
+      width: 100px;
+      height: 100px;
+      background: transparent !important;
+    }
+    ion-list{
+      text-align: center;
+      padding:5%;
+      ion-item{
+        background:transparent !important;
+        ion-label{
+          color:rgb(36, 39, 233) !important;
+        }
+        
+      }
+      .fpw{
+        margin-top: 10px;
+        background:transparent !important;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .toolbar-background{
+    background: linear-gradient(180deg, dodgerblue, rgb(38, 38, 204));
+  }
+
+
+ 
+}

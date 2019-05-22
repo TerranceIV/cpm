@@ -1,0 +1,46 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title style="text-align:left;">Create Project</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="attachmentUpload()">
+                <ion-icon name="ios-attach-outline"></ion-icon>
+            </button>
+      </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+        <ion-item class="item">
+          <ion-label style="color:rgb(56, 60, 248);">Project Title : </ion-label>
+          <ion-input type="text" [(ngModel)]="projectDetails.projectTitle" placeholder="Project1" ></ion-input>
+        </ion-item>
+
+        <ion-item class="item">
+          <ion-label style="color:rgb(56, 60, 248);">Description :</ion-label>
+          <ion-input type="text" [(ngModel)]="projectDetails.projectDesc" placeholder="Final Year Project" ></ion-input>
+        </ion-item>
+
+        <!-- <ion-item class="item">
+          <ion-label style="color:rgb(56, 60, 248);"><i class="fa fa-address-card" aria-hidden="true" style="padding-right:10px;"></i>Person In Charge : </ion-label>
+          <ion-input style="width:100px;" type="text"  [(ngModel)]="projectDetails.assignPeople" placeholder="Fong"></ion-input>
+        </ion-item> -->
+<ion-item class="item">
+  <ion-label style="color:rgb(56, 60, 248);"><i class="fa fa-address-card" aria-hidden="true" style="padding-right:10px;"></i>Person In Charge : </ion-label>
+  <ion-select [(ngModel)]="projectDetails.assignPeople" multiple="true">
+    <ion-option  *ngFor="let users of userList$ |async" value="{{users.key}}">
+      {{users.username}} 
+    </ion-option>
+    
+  </ion-select>
+</ion-item>
+        <ion-item class="item">
+          <ion-label style="color:rgb(36, 39, 233);"><i class="fa fa-calendar-check-o" aria-hidden="true" style="padding-right:10px;"></i>Due Date : </ion-label>
+          <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="projectDetails.dueDate" placeholder="13 Dec 2017" min="2018" max="2100-12-31"> </ion-datetime> 
+        </ion-item>
+        <ion-item [hidden]="hide"  >{{fileName}}</ion-item>
+
+   
+      <button ion-button block  (click)="create_project(projectDetails)"><i class="fa fa-check fa-3x"  aria-hidden="true" style="color:white;"></i></button>       
+      
+</ion-content>

@@ -1,0 +1,77 @@
+page-project-dashboard {
+    ion-content{
+        ion-card[details-push]{
+            border-radius: 0px 30px 0px 0px;
+            button[ion-item]{
+                background-color: rgb(200, 206, 236);
+                img[item-start]{
+                    padding: 0px !important;
+                    margin-right: 10px !important;
+                }
+                h5{
+                    ion-badge{
+                        margin:0 !important;
+                    }
+                }
+            }
+        }
+    }
+  
+    .toolbar-background{
+        background: linear-gradient(180deg, dodgerblue, rgb(38, 38, 204));
+    }
+    .toolbar-title{
+        color:white;
+    }
+    .fab {
+        contain: layout;    //used to display the text beside the icon   
+    }
+    button[ion-fab] {
+        overflow: visible;
+        position: relative;
+        background-color: rgba(34, 124, 207, 1.0);
+        ion-label {
+            position: absolute;
+            top: -11px;
+            right: 40px;
+
+            color: white;
+            background-color: rgba(34, 124, 207, 1.0);
+            line-height: 28px;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+    }
+    ion-fab{
+        button[ion-fab]{
+            color: white;       
+        }
+
+    }
+  
+    .card-background-page {
+
+        ion-card {
+          position: relative;
+          text-align: center;
+          
+        }
+        .card-title {
+          position: absolute;
+          top: 36%;
+          font-size: 1.6em;
+          width: 100%;
+          font-weight: bold;
+          color: black;
+        }
+        .card-subtitle {
+          font-size: 1.0em;
+          position: absolute;
+          top: 52%;
+          width: 100%;
+          color: black;
+        }
+      
+      }
+    
+}

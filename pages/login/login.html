@@ -1,0 +1,26 @@
+
+<ion-header>
+    <ion-toolbar>
+        <ion-navbar><span style="color:white;font-size:20px;font-family:'Times New Roman', Times, serif">LOGIN</span></ion-navbar>
+    </ion-toolbar>  
+</ion-header>
+
+
+<ion-content class="login">
+    <ion-list>
+        <ion-img src="assets/imgs/logo_apps5.png"></ion-img>
+        <ion-item>
+            <ion-label floating><i class="fa fa-envelope-o fa-fw"></i>  Email :</ion-label>
+            <ion-input type="email"  [(ngModel)]="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating><i class="fa fa-envelope-o fa-fw"></i>  password :</ion-label>
+            <ion-input type="password" [(ngModel)]="pw"></ion-input>
+        </ion-item>
+        
+        <button class="fpw" (click)="showForgotPassword()" float-right><ion-icon name="unlock"></ion-icon>  Forgot Password?</button>
+        <button ion-button block color="secondary" (click)="login()">
+        <i class="fa fa-sign-in fa-2x pr-10" aria-hidden="true"></i> Login</button>
+    </ion-list>
+</ion-content>  

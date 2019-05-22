@@ -1,0 +1,41 @@
+page-inbox {
+
+    ion-content{
+        ion-list{
+            margin:10px !important;
+           
+            button[ion-item]{
+                margin-top:5px !important;
+                border: 2px solid rgb(97, 97, 97);
+                border-radius: 2px 30px;
+                img[item-start]{
+                    width: 30px;
+                    height: 30px;
+                }
+                ion-badge[item-end]{
+                    margin:0 !important;
+                }
+            }
+           
+        }
+        
+    }
+    .toolbar-background{
+        background: linear-gradient(180deg, dodgerblue, rgb(38, 38, 204));
+    }
+    .toolbar-title{
+        color:black;
+    }
+    .button-inner{
+        color:black;
+    }
+    ion-icon{
+        color:white;
+    }
+    .toolbar-title{
+        color:white;
+    }
+
+  
+    
+}

@@ -1,0 +1,36 @@
+
+<ion-header>
+    <ion-toolbar>
+            
+        <ion-buttons float-left >
+            <button ion-button icon-only (click)="pop_back()" >
+                <ion-icon name="arrow-back" class="attachment" ></ion-icon>
+            </button>
+            
+        </ion-buttons>
+        <ion-title  float-left >User Profile</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list style="padding:5%;text-align:center;">
+      <ion-card>
+        <ion-img src="{{userPic}}" style="width:200px;height:200px;"></ion-img>
+        <ion-card-content>
+          <ion-card-title>{{userDisplayName}}</ion-card-title><br/>
+          <p style="font-size:12px;"> {{userEmail}}</p>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-buttons>
+        <button ion-button start icon-only (click)="UploadPic()">
+          <ion-icon name="camera"></ion-icon> <p style="padding-right: 10px;">Upload</p>
+        </button>     
+      </ion-buttons>
+
+      <button ion-button block color="button1" (click)="logout()">
+          <i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>Sign Out
+      </button>
+    </ion-list>
+
+</ion-content>

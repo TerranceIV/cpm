@@ -1,0 +1,54 @@
+
+
+<ion-header>
+    <ion-toolbar>
+        <ion-navbar><span style="color:white;font-size:20px;font-family:'Times New Roman', Times, serif;">REGISTER</span></ion-navbar>
+    </ion-toolbar>  
+</ion-header>
+
+
+<ion-content class="register">
+    <ion-list style="padding:5%;text-align:center;">
+        <ion-img src="assets/imgs/logo_apps5.png"></ion-img>
+        <form [formGroup]="regisForm" (ngSubmit)="onSubmit(regisForm.value)">
+            <ion-item [ngClass]="{'error-border':!regisForm.controls.username.valid && regisForm.controls.username.touched}">
+                <ion-label floating><i class="fa fa-user fa-fw"></i> Username : </ion-label>
+                <ion-input formControlName="username" type="text"></ion-input>          
+            </ion-item>
+            <p *ngIf="regisForm.controls.username.hasError('required') && regisForm.controls.username.touched">Username is required!</p>
+            <p *ngIf="regisForm.controls.username.hasError('pattern') && regisForm.controls.username.touched">Small and capital letters are allowed!</p>
+            <p *ngIf="regisForm.controls.username.hasError('minlength') && regisForm.controls.username.touched">Minimum username length is 5!</p>
+            <p *ngIf="regisForm.controls.username.hasError('maxlength') && regisForm.controls.username.touched">Maximum username length is 30!</p>
+
+
+            <ion-item [ngClass]="{'error-border':!regisForm.controls.username.valid && regisForm.controls.username.touched}">
+                <ion-label floating><i class="fa fa-user fa-fw"></i> Email Address : </ion-label>
+                <ion-input formControlName="email" type="email"></ion-input>
+            </ion-item>
+            <p *ngIf="regisForm.controls.email.hasError('required') && regisForm.controls.email.touched">Email is required!</p>
+            <p *ngIf="regisForm.controls.email.errors?.email">Email is not correct!</p>
+    
+
+            <ion-item [ngClass]="{'error-border':!regisForm.controls.password.valid && regisForm.controls.password.touched}">
+                <ion-label floating><i class="fa fa-key fa-fw"></i> Password : </ion-label>
+                <ion-input formControlName="password" type="password"></ion-input>
+            </ion-item>
+            <p *ngIf="regisForm.controls.password.hasError('required') && regisForm.controls.password.touched">Password is required!</p>
+            <p *ngIf="regisForm.controls.password.hasError('minlength') && regisForm.controls.password.touched">Minimum password length is 8!</p>
+            <p *ngIf="regisForm.controls.password.hasError('pattern') && regisForm.controls.password.touched">Required combination of small, big alphabet and digit!</p>
+        
+    
+            <ion-item [ngClass]="{'error-border':!regisForm.controls.password.valid && regisForm.controls.password.touched}">
+                <ion-label floating><i class="fa fa-key fa-fw"></i> Confirm Password : </ion-label>
+                <ion-input formControlName="rpassword" type="password"></ion-input>
+            </ion-item>
+            <p *ngIf="regisForm.controls.rpassword.hasError('required') && regisForm.controls.rpassword.touched">RPassword is required!</p>
+            <p *ngIf="regisForm.controls.rpassword.errors?.equalTo">Password is not match!</p>
+            <button ion-button block block color="secondary" [disabled]="!regisForm.valid" type="submit"><i class="fa fa-users fa-2x pr-10" aria-hidden="true"></i>  Register  </button>
+            <hr class="hr-text" data-content="OR" style="background: transparent !important;">
+            <button ion-button block color="red" (click)="googleSignIn()"> <i class="fa fa-google-plus-official fa-2x pr-10" aria-hidden="true"></i>Sign in With GOOGLE</button>
+        </form>
+
+    </ion-list>
+</ion-content>
+

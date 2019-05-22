@@ -1,0 +1,33 @@
+page-default {
+    .logo{
+        background: rgb(182, 234, 253);
+    }
+    .default{
+        text-align: center;
+        position: absolute;
+        left: 50%;
+        top: 50%; 
+        transform: translate(-50%, -50%);
+        width: 80%;
+        height: 80%; 
+        background: rgba(99, 195, 255, 0.714);
+        padding:8%;
+        border-radius: 40px 10px 40px 10px;
+        button{
+            margin-bottom:10px;
+            color:black;
+        }
+       
+    }
+    ion-img{
+        width: 100px;
+        height: 100px;
+        margin-bottom:50px;
+        background: transparent !important;
+    }
+
+    .button-inner{
+        font-size: 12px;
+    }
+
+}

@@ -1,0 +1,76 @@
+<ion-header >
+    <ion-navbar>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="attachmentUpload()">
+                <ion-icon name="ios-attach-outline"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons end>
+            <button ion-button icon-only class="option" (click)="presentDocument($event)" >
+              <ion-icon name="md-more"></ion-icon>
+            </button>     
+        </ion-buttons>
+    </ion-navbar> 
+    
+</ion-header>
+
+<ion-content>
+
+        <ion-refresher (ionRefresh)="doRefresh($event);">
+            <ion-refresher-content 
+                    pullingText="Pull to refresh"
+                    pullingIcon="arrow-dropdown"
+                    refreshingSpinner="circles"
+                    refreshingText="Refreshing..">
+            </ion-refresher-content>
+        </ion-refresher>
+
+    <ion-item>
+        <h2>{{projectDetails.projectTitle}} </h2>
+        <p>{{projectDetails.projectDescription}}</p>
+        <p><i class="fa fa-address-card" aria-hidden="true" style="padding-right:10px;margin-bottom: 20px;"></i>{{projectDetails.projectAssign}}</p>
+        <p>
+            <i class="fa fa-calendar" aria-hidden="true" style="padding-right:10px;"></i>
+            <ion-badge [style.background-color]="projectDetails.projectDueDate<myDate?'red':'lime'" style="font-size:12px;" >{{projectDetails.projectDueDate}}</ion-badge>
+        </p>
+        
+    </ion-item>
+
+    <ion-list>
+        <ion-item class="card-background-page" *ngIf="checkComment">
+            <ion-card>
+                <img src="assets/imgs/defaultBG.png"/>
+                <div class="card-title">Comment not found</div>
+                <div class="card-subtitle">Start your conversation now!</div>
+            </ion-card>
+        </ion-item>
+
+        <ion-item *ngFor="let comment of projectComment$ |async;"  > 
+            <ion-avatar item-start><img src="{{comment.userPicture}}"></ion-avatar>
+            <h5 class="username" style="color:rgb(4, 32, 29);font-weight:bold;">{{comment.userName}}</h5>
+            <p text-wrap class="comment" float-left style="font-size:12px;" >{{comment.comment}}</p>
+            <!-- <img src={{comment.comment}} [hidden]="hide" alt="{{comment.comment}}" width="120px"/> -->
+            <span float-right style="font-size:11px;">{{comment.sendtime}}</span>
+        </ion-item>
+    </ion-list>
+</ion-content>
+
+<ion-footer>
+        
+    <ion-toolbar>
+            <ion-buttons start>
+                    <button ion-button start icon-only (click)="selectionGrabPicture()">
+                      <ion-icon name="camera"></ion-icon>
+                    </button>     
+            </ion-buttons>
+        <ion-item>
+                <ion-label stacked></ion-label>
+                <ion-input  type="text" [(ngModel)]="usercomment" placeholder="Write a comment..."></ion-input>
+        </ion-item>
+        <ion-buttons end>
+                <button ion-button end icon-right icon-only class="option" (click)="sendcomment()">
+                  <ion-icon name="ios-send-outline"></ion-icon>
+                </button>     
+        </ion-buttons>
+    </ion-toolbar>
+</ion-footer>

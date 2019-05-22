@@ -1,0 +1,51 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title style="text-align:left;">{{Datatask.taskTitle}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+        
+        <ion-item>
+          <ion-label style="color:rgb(56, 60, 248);">Task Title : </ion-label>
+          <ion-input [(ngModel)]="Datatask.taskTitle"  ></ion-input>
+        </ion-item>
+
+        <ion-item >
+            <ion-label style="color:rgb(56, 60, 248);">Description :</ion-label>
+          <ion-input [(ngModel)]="Datatask.taskDescription" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label style="color:rgb(56, 60, 248);"><i class="fa fa-address-card" aria-hidden="true" style="padding-right:10px;"></i>Person In Charge : </ion-label>
+          <ion-input style="width:100px;" type="text"  [(ngModel)]="Datatask.taskAssign" placeholder="Fong"></ion-input>
+        </ion-item>
+     
+        <ion-item >
+          <ion-label style="color:rgb(36, 39, 233);"><i class="fa fa-calendar-check-o" aria-hidden="true" style="padding-right:10px;"></i>Due Date : </ion-label>
+          <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="Datatask.taskDueDate"  min="2018" max="2100-12-31"> </ion-datetime> 
+        </ion-item>
+
+        <ion-item >
+            <ion-label> <ion-icon name="ios-clipboard-outline" style="margin-right:10px;"> </ion-icon>Task Status</ion-label>
+            <ion-select [(ngModel)]="Datatask.taskStatus" >
+              <ion-option value="completed">
+                  Completed 
+              </ion-option>
+              <ion-option value="not complete">
+                  Not complete
+              </ion-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item >
+          <ion-label> <ion-icon name="ios-clipboard-outline" style="margin-right:10px;"> </ion-icon>Projects</ion-label>
+          <ion-select [(ngModel)]="newprojectId" >
+            <ion-option *ngFor="let projects of projectList$ |async" value="{{projects.key}}">
+            {{projects.projectTitle}} 
+            </ion-option>
+          </ion-select>
+        </ion-item>
+        
+        <button ion-button block  (click)="update_task(Datatask)"><i class="fa fa-check fa-3x"  aria-hidden="true" style="color:white;"></i></button> 
+</ion-content>

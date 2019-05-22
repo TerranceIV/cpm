@@ -1,0 +1,56 @@
+page-collaboration {
+
+    .item-inner {
+        border-bottom-color: transparent !important;
+        box-shadow: none !important; //use to remove the line below the input 
+    }
+    .grid{
+        max-height: 40px;
+    }
+    .toolbar-background{
+        background: linear-gradient(180deg, dodgerblue, rgb(38, 38, 204));
+    }
+    .toolbar-title{
+        color:white;
+    }
+    ion-icon{
+        color:white;
+    }
+    .comment {
+        padding: 5px 8px 6px;
+        background: color($colors, 'button1');
+        color: white;
+        border-radius: 5px;
+        max-width:200px;
+    }
+
+    .username {
+        font-weight: bold;
+        font-size: 80%;
+    }
+    .card-background-page {
+
+        ion-card {
+          position: relative;
+          text-align: center;
+        }
+      
+        .card-title {
+          position: absolute;
+          top: 36%;
+          font-size: 1.6em;
+          width: 100%;
+          font-weight: bold;
+          color: black;
+        }
+      
+        .card-subtitle {
+          font-size: 1.0em;
+          position: absolute;
+          top: 52%;
+          width: 100%;
+          color: black;
+        }
+      
+      }
+}

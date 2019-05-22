@@ -1,0 +1,62 @@
+page-register {
+
+    .register{
+        background: rgba(99, 195, 255, 0.714);
+        ion-list{
+            ion-img{
+                width: 100px;
+                height: 100px;
+                background: transparent !important;
+            }
+            p{
+                color:red;
+            }
+            ion-item{
+                background: transparent !important;
+               
+                ion-label{
+                    color:rgb(36, 39, 233) !important;
+                }
+            }
+            button{
+                margin-top:10px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+    
+    .toolbar-title{
+        color:white;
+        font-family:Times;
+    }
+    .toolbar-background{
+        background: linear-gradient(180deg, dodgerblue, rgb(38, 38, 204));
+    }
+    .hr-text {
+        line-height: 1em;
+        position: relative;
+        outline: 0;
+        border: 0;
+        text-align: center;
+        height: 1.5em;
+        opacity: .5;
+        &:before {
+          content: '';
+          background-color: #818078;
+          position: absolute;
+          left: 0;
+          top: 50%;
+          width: 100%;
+          height: 1px;
+        }
+        &:after {
+          content: attr(data-content);
+          position: relative;
+          display: inline-block;
+          color: black;
+          padding: 0 .5em;
+          line-height: 1.5em;
+          background-color: rgb(173, 173, 252);
+        }
+    }
+}

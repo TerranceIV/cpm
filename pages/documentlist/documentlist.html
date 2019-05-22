@@ -1,0 +1,43 @@
+
+<!-- <ion-content padding>
+    <ion-item *ngFor="let file of projectDoc$ |async;"  > 
+        <button class="fileName" style="font-weight:bold;" (click)="getURL(file.fullPath)">{{file.documentName}}</button>
+    </ion-item>
+</ion-content> -->
+
+<ion-header>
+    <ion-toolbar>
+      <ion-segment [(ngModel)]="uploaded">
+
+        <ion-segment-button value="Files">
+            Files
+        </ion-segment-button>
+        <ion-segment-button value="Images">
+            Images
+        </ion-segment-button>
+
+      </ion-segment>
+    </ion-toolbar>
+</ion-header>
+  
+  <ion-content>
+    <div [ngSwitch]="uploaded">
+      <ion-list *ngSwitchCase="'Files'">
+        <ion-item *ngFor="let file of projectDoc$ |async;"  > 
+            <button class="fileName" style="font-weight:bold;font-size: 16px;" (click)="getURL(file.fullPath)">{{file.documentName}}</button>
+        </ion-item>
+      </ion-list>
+      <ion-list *ngSwitchCase="'Images'">
+        <!-- <ion-item *ngFor="let image of projectImage$ |async;"  > 
+            <img src="{{image.url}}" [hidden]="hide" alt="{{image.documentName}}" width="80px"/> 
+        </ion-item> -->
+
+        <ion-slides class="image-slider" slidesPerView="2" > <!--loop="true"-->
+            <ion-slide *ngFor="let image of projectImage$ |async;">
+              <img src="{{image.url}}" class="thumb-img" #myImage (click)="presentImage(myImage)" />
+            </ion-slide>
+        </ion-slides>
+      </ion-list>
+     
+    </div>
+  </ion-content>
