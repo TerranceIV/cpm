@@ -34,28 +34,6 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
 // import { CustomDateFormatterProvider } from '../providers/custom-date-formatter/custom-date-formatter';
 
 
-
-// Initialize Firebase at siswamail
-//  var config  = {
-//     apiKey: "AIzaSyBmaBkPKOoEYYhoKo7FVvnVNA8K6bhDmW8",
-//     authDomain: "fyp-cpm.firebaseapp.com",
-//     databaseURL: "https://fyp-cpm.firebaseio.com",
-//     projectId: "fyp-cpm",
-//     storageBucket: "fyp-cpm.appspot.com",
-//     messagingSenderId: "204873076737"
-//   };
-//   firebase.initializeApp(config );
-
-// Initialize Firebase at terrance072811@gmail.com
-  var config = {
-    apiKey: "AIzaSyBB6d1sBAn4HOihd9Ijuy9tKjZX8uXDAO4",
-    authDomain: "cpm-fyp.firebaseapp.com",
-    databaseURL: "https://cpm-fyp.firebaseio.com",
-    projectId: "cpm-fyp",
-    storageBucket: "cpm-fyp.appspot.com",
-    messagingSenderId: "835919196437"
-  };
-  firebase.initializeApp(config);
   
 @NgModule({
   declarations: [
